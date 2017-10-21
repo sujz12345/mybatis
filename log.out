@@ -1,0 +1,21 @@
+DEBUG [main] - ==>  Preparing: select id,countryname,countrycode FROM country 
+DEBUG [main] - ==> Parameters: 
+TRACE [main] - <==    Columns: id, countryname, countrycode
+TRACE [main] - <==        Row: 1, 中国, CN
+TRACE [main] - <==        Row: 2, 美国, US
+TRACE [main] - <==        Row: 3, 俄罗斯, RU
+TRACE [main] - <==        Row: 4, 英国, GB
+TRACE [main] - <==        Row: 5, 法国, FR
+DEBUG [main] - <==      Total: 5
+DEBUG [main] - ==>  Preparing: select id,countryname,countrycode FROM country 
+DEBUG [main] - ==> Parameters: 
+TRACE [main] - <==    Columns: id, countryname, countrycode
+TRACE [main] - <==        Row: 1, 中国, CN
+TRACE [main] - <==        Row: 2, 美国, US
+TRACE [main] - <==        Row: 3, 俄罗斯, RU
+TRACE [main] - <==        Row: 4, 英国, GB
+TRACE [main] - <==        Row: 5, 法国, FR
+DEBUG [main] - <==      Total: 5
+DEBUG [main] - ==>  Preparing: select id,countryname,countrycode FROM country 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - <==      Total: 5

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!--指定使用Log4j输出日志-->
+        <setting name="logImpl" value="LOG4J"/>
+        <!-- Globally enables or disables any caches configured in any mapper under this configuration -->
+        <setting name="cacheEnabled" value="true"/>
+        <!-- Sets the number of seconds the driver will wait for a response from the database -->
+        <setting name="defaultStatementTimeout" value="3000"/>
+        <!-- Enables automatic mapping from classic database column names A_COLUMN to camel case classic Java property names aColumn -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- Allows JDBC support for generated keys. A compatible driver is required.
+        This setting forces generated keys to be used if set to true,
+         as some drivers deny compatibility but still work -->
+        <setting name="useGeneratedKeys" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <!--配置包的别名，通常在需要使用某个类的时候，需要加上全限tk.mybatis.simple.mapperrodel.Country。在配置之后，就不需要写别名了，直接写Country即可-->
+        <package name="tk.mybatis.simple.model"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC">
+                <property name="" value=""/>
+            </transactionManager>
+            <!--配置数据库连接-->
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!--Mybatis的SQL语句和映射配置文件。-->
+        <mapper resource="tk/mybatis/simple/mapper/CountryMapper.xml"/>
+    </mappers>
+
+    <!-- Continue going here -->
+
+</configuration>
