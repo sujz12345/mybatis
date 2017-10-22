@@ -20,7 +20,7 @@
     </settings>
 
     <typeAliases>
-        <!--配置包的别名，通常在需要使用某个类的时候，需要加上全限tk.mybatis.simple.mapperrodel.Country。在配置之后，就不需要写别名了，直接写Country即可-->
+        <!--配置包的别名，通常在需要使用某个类的时候，需要加上全限tk.mybatis.simple.mapperr.model.Country。在配置之后，就不需要写别名了，直接写Country即可-->
         <package name="tk.mybatis.simple.model"/>
     </typeAliases>
 
@@ -34,14 +34,17 @@
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
                 <property name="username" value="root"/>
-                <property name="password" value="123456"/>
+                <property name="password" value="Sjz19920103"/>
             </dataSource>
         </environment>
     </environments>
 
     <mappers>
         <!--Mybatis的SQL语句和映射配置文件。-->
-        <mapper resource="tk/mybatis/simple/mapper/CountryMapper.xml"/>
+        <!--<mapper resource="tk/mybatis/simple/mapper/CountryMapper.xml"/>-->
+        <!--查找tk.mybatis.simple.mapper 下的所有接口，循环对接口做如下操作-->
+
+        <package name="tk.mybatis.simple.mapper"/>
     </mappers>
 
     <!-- Continue going here -->

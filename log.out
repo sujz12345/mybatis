@@ -19,3 +19,177 @@ DEBUG [main] - <==      Total: 5
 DEBUG [main] - ==>  Preparing: select id,countryname,countrycode FROM country 
 DEBUG [main] - ==> Parameters: 
 DEBUG [main] - <==      Total: 5
+DEBUG [main] - ==>  Preparing: select id,countryname,countrycode FROM country 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - <==      Total: 5
+DEBUG [main] - ==>  Preparing: select id, user_name userName, user_password userPassword, user_email userEmail, user_info userInfo, head_img headImg, created_time createdTime 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - ==>  Preparing: select id id, user_name userName, user_password userPassword, user_email userEmail, user_info userInfo, head_img headImg, created_time createdTime 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - ==>  Preparing: select id id, user_name userName, user_password userPassword, user_email userEmail, user_info userInfo, head_img headImg, created_time createdTime from sys_user 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: select id,countryname,countrycode FROM country 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - <==      Total: 5
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select id id, user_name userName, user_password userPassword, user_email userEmail, user_info userInfo, head_img headImg, created_time createdTime from sys_user 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select r.id, r.role_name roleName, r.enabled, r.created_by createdBy, r.created_time createdTime from sys_user u inner join sys_user_role ur on ur.id = u.id inner join sys_role r on ur.role_id = r.id where u.id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - ==>  Preparing: select r.id, r.role_name roleName, r.enabled, r.created_by createdBy, r.created_time createdTime from sys_user u inner join sys_user_role ur on ur.user_id = u.id inner join sys_role r on ur.role_id = r.id where u.id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: select r.id, r.role_name roleName, r.enabled, r.created_by createdBy, r.created_time createdTime from sys_user u inner join sys_user_role ur on ur.user_id = u.id inner join sys_role r on ur.role_id = r.id where u.id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: select r.id, r.role_name roleName, r.enabled, r.created_by createdBy, r.created_time createdTime, u.user_name as "user.userName", u.user_email as "user.userEmail" from sys_user u inner join sys_user_role ur on ur.user_id = u.id inner join sys_role r on ur.role_id = r.id where u.id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: select r.id, r.role_name roleName, r.enabled, r.created_by createdBy, r.created_time createdTime, u.user_name as "user.userName", u.user_email as "user.userEmail" from sys_user u inner join sys_user_role ur on ur.user_id = u.id inner join sys_role r on ur.role_id = r.id where u.id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: select r.id, r.role_name roleName, r.enabled, r.created_by createdBy, r.created_time createdTime from sys_user u inner join sys_user_role ur on ur.user_id = u.id inner join sys_role r on ur.role_id = r.id where u.id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: insert into sys_user( id,user_name,user_password,user_email, user_info,head_img,created_time) values( ?,?,?,?,{userInfo},?,? ) 
+DEBUG [main] - ==> Parameters: null, test1(String), 123456(String), test@mybatis.tk(String), java.io.ByteArrayInputStream@eb21112(ByteArrayInputStream), 2017-10-22 14:43:00.005(Timestamp)
+DEBUG [main] - ==>  Preparing: insert into sys_user( id,user_name,user_password,user_email, user_info,head_img,created_time) values( ?,?,?,?,?,?,? ) 
+DEBUG [main] - ==> Parameters: null, test1(String), 123456(String), test@mybatis.tk(String), test info(String), java.io.ByteArrayInputStream@10dba097(ByteArrayInputStream), 2017-10-22 14:43:37.635(Timestamp)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: insert into sys_user( id,user_name,user_password,user_email, user_info,head_img,created_time) values( ?,?,?,?,?,?,? ) 
+DEBUG [main] - ==> Parameters: null, test1(String), 123456(String), test@mybatis.tk(String), test info(String), java.io.ByteArrayInputStream@401e7803(ByteArrayInputStream), 2017-10-22(Date)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: insert into sys_user( id,user_name,user_password,user_email, user_info,head_img,created_time) values( ?,?,?,?,?,?,? ) 
+DEBUG [main] - ==> Parameters: null, test1(String), 123456(String), test@mybatis.tk(String), test info(String), java.io.ByteArrayInputStream@2e3fc542(ByteArrayInputStream), 14:47:09(Time)
+DEBUG [main] - ==>  Preparing: insert into sys_user( id,user_name,user_password,user_email, user_info,head_img,created_time) values( ?,?,?,?,?,?,? ) 
+DEBUG [main] - ==> Parameters: null, test1(String), 123456(String), test@mybatis.tk(String), test info(String), java.io.ByteArrayInputStream@10dba097(ByteArrayInputStream), 2017-10-22 14:51:31.966(Timestamp)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: insert into sys_user( id,user_name,user_password,user_email, user_info,head_img,created_time) values( ?,?,?,?,?,?,? ) 
+DEBUG [main] - ==> Parameters: null, test2(String), 123456(String), test@mybatis.tk(String), test info(String), java.io.ByteArrayInputStream@10dba097(ByteArrayInputStream), 2017-10-22 14:52:10.828(Timestamp)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: insert into sys_user( user_name,user_password,user_email, user_info,head_img,created_time) values( ?,?,?,?,?,? ) 
+DEBUG [main] - ==> Parameters: test2(String), 123456(String), test@mybatis.tk(String), test info(String), java.io.ByteArrayInputStream@10dba097(ByteArrayInputStream), 2017-10-22 14:53:02.093(Timestamp)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: insert into sys_user( user_name,user_password,user_email, user_info,head_img,created_time) values( ?,?,?,?,?,? ) 
+DEBUG [main] - ==> Parameters: test2(String), 123456(String), test@mybatis.tk(String), test info(String), java.io.ByteArrayInputStream@704d6e83(ByteArrayInputStream), 2017-10-22 15:04:19.004(Timestamp)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: select last_insert_id(); 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: insert into sys_user( id,user_name,user_password,user_email, user_info,head_img,created_time) values( ?,?,?,?,?,?,? ) 
+DEBUG [main] - ==> Parameters: null, test1(String), 123456(String), test@mybatis.tk(String), test info(String), java.io.ByteArrayInputStream@704d6e83(ByteArrayInputStream), 2017-10-22 15:06:55.66(Timestamp)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: update sys_user SET user_name = ?, user_email = ?, user_password = ?, user_info = # {userInfo}, head_img = ?, created_time = ? where id = ? 
+DEBUG [main] - ==> Parameters: ADMIN_TEST(String), admin@mybatis.tk(String), 123456(String), null, 2017-10-17 21:44:00.0(Timestamp), 1(Long)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: DELETE from sys_user where id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 0
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1001(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: DELETE from sys_user where id = ? 
+DEBUG [main] - ==> Parameters: 1001(Long)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1001(Long)
+DEBUG [main] - <==      Total: 0
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: DELETE from sys_user where id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 0
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1001(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: DELETE from sys_user where id = ? 
+DEBUG [main] - ==> Parameters: 1001(Long)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1001(Long)
+DEBUG [main] - <==      Total: 0
+DEBUG [main] - ==>  Preparing: select r.* from sys_user u inner join sys_user_role ur on u.id = ur.user_id inner join sys_role r on ur.role_id = r.id where u.id = ? and r.enabled = ? 
+DEBUG [main] - ==> Parameters: 1(Long), 1(Integer)
+DEBUG [main] - ==>  Preparing: select r.* from sys_user u inner join sys_user_role ur on u.id = ur.user_id inner join sys_role r on ur.role_id = r.id where u.id = ? and r.enabled = ? 
+DEBUG [main] - ==> Parameters: 1(Long), 1(Integer)
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: select id, user_name userName, user_password userPassword, user_email userEmail, user_info userInfo, head_img headImg from sys_user where 1 = 1 and user_name = ? 
+DEBUG [main] - ==> Parameters: test(String)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select id, user_name userName, user_password userPassword, user_email userEmail, user_info userInfo, head_img headImg from sys_user where 1 = 1 and user_email = ? 
+DEBUG [main] - ==> Parameters: test@mybatis.tk(String)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where 1 = 1 and id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where 1 = 1 and id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where 1 = 1 and user_name = ? 
+DEBUG [main] - ==> Parameters: test(String)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where 1 = 1 1 = 2 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where 1 = 1 and id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where 1 = 1 and user_name = ? 
+DEBUG [main] - ==> Parameters: test(String)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where 1 = 1 and 1 = 2 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - <==      Total: 0
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where 1 = 1 and id = ? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where 1 = 1 and user_name = ? 
+DEBUG [main] - ==> Parameters: test(String)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where 1 = 1 and 1 = 2 
+DEBUG [main] - ==> Parameters: 
+DEBUG [main] - <==      Total: 0
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where id in ( ? , ? ) 
+DEBUG [main] - ==> Parameters: 1(Long), 1001(Long)
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where id in ( ? , ? ) 
+DEBUG [main] - ==> Parameters: 1(Long), 1001(Long)
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where id in ( ? , ? ) 
+DEBUG [main] - ==> Parameters: 1(Long), 1001(Long)
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo from sys_user where id in ( ? , ? ) 
+DEBUG [main] - ==> Parameters: 1(Long), 1001(Long)
+DEBUG [main] - <==      Total: 2
+DEBUG [main] - ==>  Preparing: update sys_user set ( user_email = ? , id = ? ) where id = ? 
+DEBUG [main] - ==> Parameters: sujz12345@163.com(String), 1(Long), 1(Long)
+DEBUG [main] - ==>  Preparing: update sys_user set user_email = ? , id = ? where id = ? 
+DEBUG [main] - ==> Parameters: sujz12345@163.com(String), 1(Long), 1(Long)
+DEBUG [main] - <==    Updates: 1
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1
+DEBUG [main] - ==>  Preparing: select * from sys_user where id=? 
+DEBUG [main] - ==> Parameters: 1(Long)
+DEBUG [main] - <==      Total: 1

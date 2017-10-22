@@ -10,7 +10,17 @@ public class SysRole {
     private String roleName;
     private String enabled;
     private String createdBy;
-    private Date createdDate;
+    private Date createdTime;
+
+    private SysUser user;
+
+    public SysUser getUser() {
+        return user;
+    }
+
+    public void setUser(SysUser user) {
+        this.user = user;
+    }
 
     public Long getId() {
         return id;
@@ -44,12 +54,12 @@ public class SysRole {
         this.createdBy = createdBy;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getCreatedTime() {
+        return createdTime;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
     }
 
     @Override
@@ -59,7 +69,8 @@ public class SysRole {
                 ", roleName='" + roleName + '\'' +
                 ", enabled='" + enabled + '\'' +
                 ", createdBy='" + createdBy + '\'' +
-                ", createdDate=" + createdDate +
+                ", createdTime=" + createdTime +
+                ", user=" + user +
                 '}';
     }
 }

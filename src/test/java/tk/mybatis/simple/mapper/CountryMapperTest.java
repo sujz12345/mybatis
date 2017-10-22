@@ -1,38 +1,21 @@
 package tk.mybatis.simple.mapper;
 
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import tk.mybatis.simple.model.Country;
 
-import java.io.IOException;
-import java.io.Reader;
 import java.util.List;
 
 /**
  * Created by sujinzhou on 2017/10/17.
  */
-public class CountryMapperTest {
-    private static SqlSessionFactory sqlSessionFactory;
+public class CountryMapperTest extends BaseMapperTest{
 
-    @BeforeClass
-    public static void init(){
-        try {
-            Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
-            sqlSessionFactory =new  SqlSessionFactoryBuilder().build(reader);
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test
     public void testSelectAll(){
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        List<Country> list = sqlSession.selectList("selectAll");
+        SqlSession sqlSession = getSqlSession();
+        List<Country> list = sqlSession.selectList("tk.mybatis.simple.mapper.CountryMapper.selectAll");
         System.out.println(list);
     }
 }

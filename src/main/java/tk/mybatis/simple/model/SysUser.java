@@ -13,7 +13,7 @@ public class SysUser {
     private String userEmail;
     private String userInfo;
     private byte[] headImg;
-    private Date createdDate;
+    private Date createdTime;
 
     public Long getId() {
         return id;
@@ -63,12 +63,12 @@ public class SysUser {
         this.headImg = headImg;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getCreatedTime() {
+        return createdTime;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class SysUser {
                 ", userEmail='" + userEmail + '\'' +
                 ", userInfo='" + userInfo + '\'' +
                 ", headImg=" + Arrays.toString(headImg) +
-                ", createdDate=" + createdDate +
+                ", createdTime=" + createdTime +
                 '}';
     }
 }

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tk.mybatis.simple.mapper.UserMapper">
+    <resultMap id="userMapper" type="tk.mybatis.simple.model.SysUser">
+        <id property="id" column="id" />
+        <result property="userName" column="user_name"/>
+        <result property="userPassword" column="user_password"/>
+        <result property="userEmail" column="user_email"/>
+        <result property="userInfo" column="user_info"/>
+        <result property="headImg" column="head_img"/>
+        <result property="createdTime" column="created_time"/>
+    </resultMap>
+    <!--使用resultMap來映射-->
+    <select id="selectById" resultMap="userMapper">
+        select * from sys_user where id=#{id}
+    </select>
+    <!--使用resultType來映射，在查詢列的时候需要设置别名-->
+    <select id="selectAll" resultType="tk.mybatis.simple.model.SysUser">
+        select id id,
+          user_name userName,
+          user_password userPassword,
+          user_email userEmail,
+          user_info userInfo,
+          head_img headImg,
+          created_time createdTime
+        from sys_user
+    </select>
+
+    <select id="selectRolesById" resultType="tk.mybatis.simple.model.SysRole">
+      select
+        r.id,
+        r.role_name roleName,
+        r.enabled,
+        r.created_by createdBy,
+        r.created_time createdTime
+      from sys_user u
+      inner join sys_user_role ur on ur.user_id = u.id
+      inner join sys_role r on ur.role_id = r.id
+      where u.id = #{id}
+    </select>
+
+    <select id="selectRolesById2" resultType="tk.mybatis.simple.model.SysRole">
+        select
+        r.id,
+        r.role_name roleName,
+        r.enabled,
+        r.created_by createdBy,
+        r.created_time createdTime,
+        u.user_name as "user.userName",
+        u.user_email as "user.userEmail"
+        from sys_user u
+        inner join sys_user_role ur on ur.user_id = u.id
+        inner join sys_role r on ur.role_id = r.id
+        where u.id = #{id}
+    </select>
+    <insert id="insert">
+        insert into sys_user(
+            id,user_name,user_password,user_email,
+            user_info,head_img,created_time)
+        values(
+            #{id},#{userName},#{userPassword},#{userEmail},#{userInfo},#{headImg,jdbcType=BLOB},#{createdTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+
+    <insert id="insert2" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_user(
+        user_name,user_password,user_email,
+        user_info,head_img,created_time)
+        values(
+        #{userName},#{userPassword},#{userEmail},#{userInfo},#{headImg,jdbcType=BLOB},#{createdTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+
+    <insert id="insert3">
+        insert into sys_user(
+        user_name,user_password,user_email,
+        user_info,head_img,created_time)
+        values(
+        #{userName},#{userPassword},#{userEmail},#{userInfo},#{headImg,jdbcType=BLOB},#{createdTime,jdbcType=TIMESTAMP}
+        )
+        <selectKey keyProperty="id" keyColumn="id" order="AFTER" resultType="long">
+            select last_insert_id();
+        </selectKey>
+    </insert>
+
+    <update id="updateById">
+        update sys_user SET
+        user_name = #{userName},
+        user_email = #{userEmail},
+        user_password = #{userPassword},
+        user_info = # {userInfo},
+        head_img = #{headImg},
+        created_time = #{createdTime,jdbcType=TIMESTAMP}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE  from sys_user where id = #{id}
+    </delete>
+
+    <select id="selectRolesByUserIdAndRoleEnabled" resultType="tk.mybatis.simple.model.SysRole">
+        select
+          r.*
+        from sys_user u
+        inner join sys_user_role ur on u.id = ur.user_id
+        inner join sys_role r on ur.role_id = r.id
+        where u.id = #{userId} and r.enabled = #{enabled}
+    </select>
+
+    <select id="selectByUser" resultType="tk.mybatis.simple.model.SysUser">
+        select id,
+            user_name userName,
+            user_password userPassword,
+            user_email userEmail,
+            user_info userInfo,
+            head_img headImg
+        from sys_user
+        where 1 = 1
+        <if test="userName != null and userName != ''">
+            and user_name = #{userName}
+        </if>
+        <if test="userEmail != null and userEmail !=''">
+            and user_email = #{userEmail}
+        </if>
+    </select>
+
+    <update id="updateByIdSelective">
+        update sys_user SET
+        <if test="userName != null and userName !=''">
+            user_name = #{userName}
+        </if>
+        <if test="userPassword != null and userPassword !=''">
+            user_passord = #{userPassword}
+        </if>
+        <if test="userEmail != null and userEmail !=''">
+            user_email = #{userEmail}
+        </if>
+        id = #{id}
+        where id = #{id}
+    </update>
+
+    <select id="selectByIdOrUserName" resultType="tk.mybatis.simple.model.SysUser">
+        select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo
+        from sys_user
+        where 1 = 1
+        <choose>
+            <when test="id != null">
+                and id = #{id}
+            </when>
+            <when test="userName != null">
+                and user_name = #{userName}
+            </when>
+            <otherwise>
+               and 1 = 2
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="selectByIdList" resultType="tk.mybatis.simple.model.SysUser">
+        select id,user_name userName,user_email userEmail,user_password userPassword,user_info userInfo
+        from sys_user
+        where id in
+        <foreach collection="list" open="(" separator="," close=")" index="i" item="id">
+            #{id}
+        </foreach>
+    </select>
+    <update id="updateByMap">
+        update sys_user
+        set
+        <foreach collection="_parameter"  separator=","  index="key" item="val">
+            ${key} = #{val}
+        </foreach>
+        where id = #{id}
+    </update>
+</mapper>
